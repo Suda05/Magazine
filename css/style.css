@@ -260,7 +260,7 @@ main {
   padding-top: 60px;
 }
 .back_number-book101 img, .back_number-book100 img, .back_number-book99 img, .back_number-book98 img, .back_number-book97 img, .back_number-book96 img {
-  width: 50%;
+  width: 20vw;
   box-shadow: 1px 0px 12px -1px rgba(0, 0, 0, 0.3);
 }
 .back_number-book101 {
@@ -295,7 +295,7 @@ main {
     padding-top: 40px;
   }
   .back_number-book101 img, .back_number-book100 img, .back_number-book99 img, .back_number-book98 img, .back_number-book97 img, .back_number-book96 img {
-    width: 55%;
+    width: 55vw;
     box-shadow: 1px 0px 12px -1px rgba(0, 0, 0, 0.3);
   }
   .back_number-no {
