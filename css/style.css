@@ -1,0 +1,313 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Radio Canada", "Noto Sans JP", sans-serif;
+  color: black;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  body {
+    display: block;
+  }
+}
+
+.header {
+  background-color: #fff;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  text-align: center;
+}
+.header-logo {
+  width: 200px;
+  margin-top: 40px;
+  margin-bottom: 75px;
+}
+.header-logo img {
+  width: 160px;
+  height: auto;
+}
+.header-btn-hidden {
+  display: none;
+}
+.header-nav-responsive {
+  display: flex;
+  height: calc(100vh - 144.6px);
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header-nav {
+  display: block;
+  text-align: left;
+  margin: 0 20px;
+}
+.header-nav ul {
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 13.2px;
+}
+.header-nav ul li {
+  margin-bottom: 23px;
+}
+.header-nav ul li a {
+  position: relative;
+  overflow: hidden;
+}
+.header-nav ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-bottom: #000 solid 1px;
+  transform-origin: right top;
+  transform: scale(0, 1);
+  transition: transform 0.5s ease;
+}
+.header-nav ul li a:hover::before {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+.header-sns {
+  width: 100%;
+  margin: 1.3em 0;
+  justify-content: space-between;
+}
+.header-sns img {
+  margin: 6px;
+}
+@media screen and (max-width: 767px) {
+  .header {
+    width: 100%;
+    height: 60px;
+    background-color: transparent;
+    z-index: 50;
+    position: relative;
+  }
+  .header-logo {
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+  }
+  .header-logo img {
+    width: 140px;
+  }
+  .header-nav-responsive {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.7s cubic-bezier(0.86, -0.01, 0.21, 1);
+  }
+  .header-nav {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+  .header-nav ul {
+    font-size: 16px;
+    line-height: 1.6em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #header-btn-open {
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 100;
+    background: url(../img/ico-nav.svg) center center no-repeat;
+    cursor: pointer;
+  }
+  #header-btn-input:checked ~ #header-btn-open {
+    background: url(../img/ico-nav-close.svg) center center no-repeat;
+  }
+}
+
+#header-btn-input:checked ~ .header-nav-responsive {
+  transform: translateX(0);
+}
+
+main {
+  width: calc(100vw - 200px);
+}
+@media screen and (max-width: 767px) {
+  main {
+    width: 100%;
+  }
+}
+
+.main-mv {
+  height: 100vh;
+  background: url(../img/mv-bg@2x.jpg) center center/cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-mv img {
+  height: 80%;
+  max-width: 100%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+.main-mv h1 {
+  position: absolute;
+  left: 4%;
+  bottom: 45px;
+  display: flex;
+  flex-direction: column;
+}
+.main-book_number, .main-copy {
+  font-weight: normal;
+  margin: 0;
+}
+.main-book_number span, .main-copy span {
+  background: #fff;
+  position: relative;
+}
+.main-book_number {
+  font-size: 16px;
+}
+.main-book_number span {
+  padding: 0 2px;
+  line-height: 1.7;
+}
+.main-copy {
+  font-size: 3.2vw;
+}
+.main-copy span {
+  padding: 0 5px;
+  line-height: 1.4;
+}
+@media screen and (max-width: 767px) {
+  .main-mv {
+    display: flex;
+    height: calc(100vh - 60px);
+    padding-top: 0;
+  }
+  .main-mv img {
+    width: 80vw;
+    max-width: 400px;
+    height: auto;
+    margin-bottom: 40px;
+  }
+  .main-mv h1 {
+    left: 15px;
+    margin-bottom: 8px;
+  }
+  .main-copy {
+    font-size: 26px;
+    margin-bottom: 0.1em;
+  }
+}
+
+.back_number-subject {
+  background: #f8f8f8;
+  padding: 40px 32px 30px;
+}
+.back_number-subject h2 {
+  font-weight: normal;
+  font-size: 23.8px;
+  line-height: 0.8em;
+}
+.back_number-subject h2 span {
+  font-size: 11px;
+}
+.back_number-books {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.back_number-no {
+  font-weight: 300;
+  font-size: 13.2px;
+  line-height: 1.7em;
+  text-align: start;
+  margin: 45px 30px 4px 40px;
+}
+.back_number-title {
+  font-size: 18.5px;
+  font-weight: normal;
+  text-align: start;
+  margin: 0 40px 60px 40px;
+}
+.back_number-book101, .back_number-book100, .back_number-book99, .back_number-book98, .back_number-book97, .back_number-book96 {
+  width: 50%;
+  text-align: center;
+  padding-top: 60px;
+}
+.back_number-book101 img, .back_number-book100 img, .back_number-book99 img, .back_number-book98 img, .back_number-book97 img, .back_number-book96 img {
+  width: 50%;
+  box-shadow: 1px 0px 12px -1px rgba(0, 0, 0, 0.3);
+}
+.back_number-book101 {
+  background: #ecf4f9;
+}
+.back_number-book100 {
+  background: #fbf3d2;
+}
+.back_number-book99 {
+  background: #f9f2eb;
+}
+.back_number-book98 {
+  background: #fae8c2;
+}
+.back_number-book97 {
+  background: #e2efe7;
+}
+.back_number-book96 {
+  background: #f2f5fb;
+}
+@media screen and (max-width: 767px) {
+  .back_number-subject {
+    padding: 24px 11px 23px;
+  }
+  .back_number-subject h2 {
+    font-size: 15.7px;
+    line-height: 1;
+  }
+  .back_number-book101, .back_number-book100, .back_number-book99, .back_number-book98, .back_number-book97, .back_number-book96 {
+    width: 100%;
+    text-align: center;
+    padding-top: 40px;
+  }
+  .back_number-book101 img, .back_number-book100 img, .back_number-book99 img, .back_number-book98 img, .back_number-book97 img, .back_number-book96 img {
+    width: 55%;
+    box-shadow: 1px 0px 12px -1px rgba(0, 0, 0, 0.3);
+  }
+  .back_number-no {
+    margin: 45px 20px 4px 20px;
+  }
+  .back_number-title {
+    font-size: 18.5px;
+    font-weight: normal;
+    text-align: start;
+    margin: 0 20px 60px 20px;
+  }
+  .back_number-title:last-child {
+    margin-bottom: 40px;
+  }
+}/*# sourceMappingURL=style.css.map */

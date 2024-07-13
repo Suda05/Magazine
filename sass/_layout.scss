@@ -1,0 +1,385 @@
+@use './mixins' as *;
+
+body {
+    display: flex;
+    position: relative;
+
+    @include mq {
+        display: block;
+    }
+}
+
+.header {
+    background-color: #fff;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    text-align: center;
+
+    &-logo {
+        width: 200px;
+        margin-top: 40px;
+        margin-bottom: 75px;
+
+        img {
+            width: 160px;
+            height: auto;
+        }
+    }
+
+    &-btn-hidden {
+        display: none;
+    }
+
+    &-nav-responsive {
+        display: flex;
+        height: calc(100vh - 144.6px);
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &-nav {
+        display: block;
+        text-align: left;
+        margin: 0 20px;
+
+        ul {
+            list-style: none;
+            text-transform: uppercase;
+            font-size: 13.2px;
+
+            li {
+                margin-bottom: 23px;
+
+                a {
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                a::before {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 100%;
+                    height: 1px;
+                    border-bottom: #000 solid 1px;
+                    transform-origin: right top;
+                    transform: scale(0, 1);
+                    transition: transform 0.5s ease;
+                }
+
+                a:hover::before {
+                    transform-origin: left top;
+                    transform: scale(1, 1);
+                }
+
+            }
+
+        }
+    }
+
+    &-sns {
+        width: 100%;
+        margin: 1.3em 0;
+        justify-content: space-between;
+
+        img {
+            margin: 6px;
+        }
+    }
+
+
+    @include mq {
+
+        width: 100%;
+        height: 60px;
+        background-color: transparent;
+        z-index: 50;
+        position: relative;
+
+
+        &-logo {
+            width: 100%;
+            height: 60px;
+            background: #fff;
+            margin: 0;
+            padding-left: 20px;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+
+            img {
+                width: 140px;
+            }
+        }
+
+        &-nav-responsive {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            background-color: #fff;
+            position: fixed;
+            top: 0;
+            justify-content: center;
+            transform: translateX(100%);
+            transition: transform 0.7s cubic-bezier(.86, -0.01, .21, 1);
+
+        }
+
+        &-nav {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        &-nav ul {
+            font-size: 16px;
+            line-height: 1.6em;
+        }
+    }
+}
+
+#header-btn {
+
+    @include mq {
+        &-open {
+            display: block;
+            width: 60px;
+            height: 60px;
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            z-index: 100;
+            background: url(../img/ico-nav.svg) center center no-repeat;
+            cursor: pointer;
+        }
+
+        &-input:checked~&-open {
+            background: url(../img/ico-nav-close.svg) center center no-repeat;
+        }
+    }
+}
+
+#header-btn-input:checked~.header-nav-responsive {
+    transform: translateX(0);
+}
+
+main {
+    width: calc(100vw - 200px);
+
+    @include mq {
+        width: 100%;
+    }
+}
+
+.main {
+    &-mv {
+        height: 100vh;
+        background: url(../img/mv-bg@2x.jpg) center center /cover;
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            height: 80%;
+            max-width: 100%;
+            object-fit: scale-down;
+        }
+
+        h1 {
+            position: absolute;
+            left: 4%;
+            bottom: 45px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &-book_number,
+    &-copy {
+        font-weight: normal;
+        margin: 0;
+
+        span {
+            background: #fff;
+            position: relative;
+        }
+    }
+
+    &-book_number {
+        font-size: 16px;
+
+        span {
+            padding: 0 2px;
+            line-height: 1.7;
+        }
+    }
+
+    &-copy {
+        font-size: 3.2vw;
+
+        span {
+            padding: 0 5px;
+            line-height: 1.4;
+        }
+    }
+
+    @include mq {
+        &-mv {
+            display: flex;
+            height: calc(100vh - 60px);
+            padding-top: 0;
+
+            img {
+                width: 80vw;
+                max-width: 400px;
+                height: auto;
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                left: 15px;
+                margin-bottom: 8px;
+            }
+        }
+
+        &-copy {
+            font-size: 26px;
+            margin-bottom: 0.1em;
+        }
+    }
+
+}
+
+
+.back_number {
+    &-subject {
+        background: #f8f8f8;
+        padding: 40px 32px 30px;
+
+        h2 {
+            font-weight: normal;
+            font-size: 23.8px;
+            line-height: 0.8em;
+
+            span {
+                font-size: 11px;
+            }
+        }
+    }
+
+    &-books {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &-no {
+        font-weight: 300;
+        font-size: 13.2px;
+        line-height: 1.7em;
+        text-align: start;
+        margin: 45px 30px 4px 40px;
+    }
+
+    &-title {
+        font-size: 18.5px;
+        font-weight: normal;
+        text-align: start;
+        margin: 0 40px 60px 40px;
+    }
+
+    &-book {
+
+        &101,
+        &100,
+        &99,
+        &98,
+        &97,
+        &96 {
+            width: 50%;
+            text-align: center;
+            padding-top: 60px;
+
+            img {
+                width: 50%;
+                box-shadow: 1px 0px 12px -1px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        &101 {
+            background: #ecf4f9;
+        }
+
+        &100 {
+            background: #fbf3d2;
+        }
+
+        &99 {
+            background: #f9f2eb;
+        }
+
+        &98 {
+            background: #fae8c2;
+        }
+
+        &97 {
+            background: #e2efe7;
+        }
+
+        &96 {
+            background: #f2f5fb;
+        }
+
+    }
+
+    @include mq {
+        &-subject {
+
+            padding: 24px 11px 23px;
+
+            h2 {
+                font-size: 15.7px;
+                line-height: 1;
+            }
+        }
+
+        &-book {
+
+            &101,
+            &100,
+            &99,
+            &98,
+            &97,
+            &96 {
+                width: 100%;
+                text-align: center;
+                padding-top: 40px;
+
+                img {
+                    width: 55%;
+                    box-shadow: 1px 0px 12px -1px rgba(0, 0, 0, 0.3);
+                }
+            }
+
+        }
+
+        &-no {
+            margin: 45px 20px 4px 20px;
+        }
+
+        &-title {
+            font-size: 18.5px;
+            font-weight: normal;
+            text-align: start;
+            margin: 0 20px 60px 20px;
+        }
+
+        &-title:last-child {
+            margin-bottom: 40px;
+        }
+
+    }
+}
